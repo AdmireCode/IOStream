@@ -11,15 +11,15 @@ new file mode 100644
     out.write(byte[] buf)将buf字节数组都写到流
     out.write(byte[] buf, int start, int size)
 
-    FileInputStream ---> 继承了InputStream，具体实现了文件上读取数据
-    FileOutputStream --->继承了OutputStream，实现了向文件中写出byte数据的方法
+    FileInputStream ---> 继承了InputStream，具体实现了文件上读取数据------------------------------->案例FileInputUtil.java
+    FileOutputStream --->继承了OutputStream，实现了向文件中写出byte数据的方法---------------------->案例FileOutputUtil.java
 
     DataOutputStream/DataInputStream
         对“流”功能的扩展，可以更加方便的读取int,long，字符等类型数据（主要针对类型数据）
         DataOutputStream
             writeInt()/writeDouble()/writeUTF()主要是这些方法里面已经封装好了，如writeInt()里面包装好了写入4个字节
 
-    BufferedInputStream&BufferedOuputStream
+    BufferedInputStream&BufferedOuputStream-------------------------------------------------------->案例BufferedOutputUtil.java
         这两个流类位IO提供了带缓冲区的操作，一般打开文件进行写入或读取操作时，都会加上缓冲，这种
         流模式提高了IO的性能从应用程序中把输入放入文件，相当于将一缸水倒入另一缸中：
         FileOutputStream--->write()方法相当于一滴一滴地把水“转移”过去；
@@ -76,17 +76,17 @@ new file mode 100644
     字符的底层仍然是基本的字节序列
 
     字符流的基本实现
-        InputStreamReader  完成byte流解析为char流，按照编码解析
-        OutputStreamWriter 按照char流到byte流，安装编码处理
+        InputStreamReader  完成byte流解析为char流，按照编码解析------------------------------------>案例MyClass.Java
+        OutputStreamWriter 按照char流到byte流，安装编码处理---------------------------------------->案例MyClass.Java
 
-        FileReader/FileWriter
+        FileReader/FileWriter---------------------------------------------------------------------->案例FrAndFwDemo.java
 
-    字符流的过滤器(案例看BrAndBwOrPwDemo.java)
+    字符流的过滤器--------------------------------------------------------------------------------->案例BrAndBwOrPwDemo.java
         BufferedReader ---> readLine 一次读一行
         BufferedWriter/PrintWrite ---> 写一行
         或者BufferedReader经常搭配PrintWriter来使用
 
-3、对象的序列化和反序列化问题（案例：ObjectSeriaDemo1.java Student.java）
+3、对象的序列化和反序列化问题 --------------------------------------------------------------------->案例ObjectSeriaDemo1.java Student.java
     1)对象序列化，就是将Object转换成byte序列，反之叫反序列化
     2)需要将序列化流，序列化流（ObjectOutputStream），是过滤流---writeObject
       反序列化流(ObjectInputStream)---readObject
